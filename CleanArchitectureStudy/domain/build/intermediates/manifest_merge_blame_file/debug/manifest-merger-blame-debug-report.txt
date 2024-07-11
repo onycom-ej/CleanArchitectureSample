@@ -3,10 +3,10 @@
 3    package="com.example.domain" >
 4
 5    <uses-sdk android:minSdkVersion="24" />
-5-->/Users/youheegyeong/CleanArchitectureSample/CleanArchitectureStudy/domain/src/main/AndroidManifest.xml
+5-->/Users/kim/AndroidStudioProjects/CleanArchitectureSample/CleanArchitectureStudy/domain/src/main/AndroidManifest.xml
 6
 7    <uses-permission android:name="android.permission.INTERNET" />
-7-->/Users/youheegyeong/CleanArchitectureSample/CleanArchitectureStudy/domain/src/main/AndroidManifest.xml:5:5-67
-7-->/Users/youheegyeong/CleanArchitectureSample/CleanArchitectureStudy/domain/src/main/AndroidManifest.xml:5:22-64
+7-->/Users/kim/AndroidStudioProjects/CleanArchitectureSample/CleanArchitectureStudy/domain/src/main/AndroidManifest.xml:5:5-67
+7-->/Users/kim/AndroidStudioProjects/CleanArchitectureSample/CleanArchitectureStudy/domain/src/main/AndroidManifest.xml:5:22-64
 8
 9</manifest>

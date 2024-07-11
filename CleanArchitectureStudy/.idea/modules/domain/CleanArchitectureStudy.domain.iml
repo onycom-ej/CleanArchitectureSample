@@ -39,9 +39,6 @@
           <option name="pluginOptions">
             <array />
           </option>
-          <option name="errors">
-            <ArgumentParseErrors />
-          </option>
         </compilerArguments>
       </configuration>
     </facet>

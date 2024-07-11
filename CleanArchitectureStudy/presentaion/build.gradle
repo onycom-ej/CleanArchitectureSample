@@ -95,6 +95,11 @@ dependencies {
     implementation "io.ktor:ktor-client-content-negotiation:$ktorVersion"
     implementation "io.ktor:ktor-serialization-kotlinx-json:$ktorVersion"
 
+
+    implementation 'io.imqa:imqa-core:2.29.166-SNAPSHOT'
+    implementation 'io.imqa:imqa-mpm-client:2.29.166-SNAPSHOT'
+    implementation 'io.imqa:imqa-crash-client:2.29.163-SNAPSHOT'
+
     // Espresso
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
     // Trust
@@ -112,6 +117,24 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestImplementation 'androidx.test:rules:1.4.0'
 }
+//android.applicationVariants.all { variant ->
+//    variant.javaCompile.doLast { task ->
+//        new io.imqa.injector.CompileAction(
+//                io.imqa.injector.util.BuildOption.BUILD_LOCATION_TYPE.kotlin,
+//                project.name,
+//                io.imqa.injector.GJavacAction.convertBuildType(variant.getBuildType()),
+//                io.imqa.injector.GJavacAction.makeFlavor(variant.getBuildType().name,
+//                        variant)
+//        ).execute(task)
+//        new io.imqa.injector.CompileAction(
+//                io.imqa.injector.util.BuildOption.BUILD_LOCATION_TYPE.javacClasses,
+//                project.name,
+//                io.imqa.injector.GJavacAction.convertBuildType(variant.getBuildType()),
+//                io.imqa.injector.GJavacAction.makeFlavor(variant.getBuildType().name,
+//                        variant)
+//        ).execute(task)
+//    }
+//}
 
 // dependsOn : 유닛 테스트를 수행하는 태스크 이름으로 설정.
 task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {

@@ -3,6 +3,7 @@ package com.example.cleanarchitecturestudy.view.search
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -11,6 +12,8 @@ import com.example.cleanarchitecturestudy.base.BaseActivity
 import com.example.cleanarchitecturestudy.databinding.ActivityMovieSearchBinding
 import com.example.cleanarchitecturestudy.utils.ItemMoveCallback
 import dagger.hilt.android.AndroidEntryPoint
+import io.imqa.crash.IMQACrashAgent
+import io.imqa.mpm.IMQAMpmAgent
 
 
 @AndroidEntryPoint

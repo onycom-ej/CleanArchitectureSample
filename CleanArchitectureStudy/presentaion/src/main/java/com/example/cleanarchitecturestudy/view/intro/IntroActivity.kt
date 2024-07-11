@@ -14,6 +14,7 @@ import com.example.cleanarchitecturestudy.R
 import com.example.cleanarchitecturestudy.base.BaseActivity
 import com.example.cleanarchitecturestudy.databinding.ActivityIntroBinding
 import com.example.cleanarchitecturestudy.view.MainActivity
+import io.imqa.mpm.IMQAMpmAgent
 import kotlin.concurrent.thread
 
 class IntroActivity : BaseActivity<ActivityIntroBinding>(R.layout.activity_intro) {

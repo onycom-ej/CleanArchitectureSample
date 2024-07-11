@@ -4,6 +4,7 @@ package com.example.cleanarchitecturestudy.hilt;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
 import dagger.internal.Preconditions;
+import io.imqa.mpm.network.MPMInterceptor;
 import javax.inject.Provider;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -19,25 +20,30 @@ public final class ApiModule_ProvideOkHttpClientFactory implements Factory<OkHtt
 
   private final Provider<HttpLoggingInterceptor> loggerInterceptorProvider;
 
+  private final Provider<MPMInterceptor> mpmInterceptorProvider;
+
   public ApiModule_ProvideOkHttpClientFactory(Provider<Interceptor> headerInterceptorProvider,
-      Provider<HttpLoggingInterceptor> loggerInterceptorProvider) {
+      Provider<HttpLoggingInterceptor> loggerInterceptorProvider,
+      Provider<MPMInterceptor> mpmInterceptorProvider) {
     this.headerInterceptorProvider = headerInterceptorProvider;
     this.loggerInterceptorProvider = loggerInterceptorProvider;
+    this.mpmInterceptorProvider = mpmInterceptorProvider;
   }
 
   @Override
   public OkHttpClient get() {
-    return provideOkHttpClient(headerInterceptorProvider.get(), loggerInterceptorProvider.get());
+    return provideOkHttpClient(headerInterceptorProvider.get(), loggerInterceptorProvider.get(), mpmInterceptorProvider.get());
   }
 
   public static ApiModule_ProvideOkHttpClientFactory create(
       Provider<Interceptor> headerInterceptorProvider,
-      Provider<HttpLoggingInterceptor> loggerInterceptorProvider) {
-    return new ApiModule_ProvideOkHttpClientFactory(headerInterceptorProvider, loggerInterceptorProvider);
+      Provider<HttpLoggingInterceptor> loggerInterceptorProvider,
+      Provider<MPMInterceptor> mpmInterceptorProvider) {
+    return new ApiModule_ProvideOkHttpClientFactory(headerInterceptorProvider, loggerInterceptorProvider, mpmInterceptorProvider);
   }
 
   public static OkHttpClient provideOkHttpClient(Interceptor headerInterceptor,
-      HttpLoggingInterceptor LoggerInterceptor) {
-    return Preconditions.checkNotNullFromProvides(ApiModule.INSTANCE.provideOkHttpClient(headerInterceptor, LoggerInterceptor));
+      HttpLoggingInterceptor LoggerInterceptor, MPMInterceptor mpmInterceptor) {
+    return Preconditions.checkNotNullFromProvides(ApiModule.INSTANCE.provideOkHttpClient(headerInterceptor, LoggerInterceptor, mpmInterceptor));
   }
 }

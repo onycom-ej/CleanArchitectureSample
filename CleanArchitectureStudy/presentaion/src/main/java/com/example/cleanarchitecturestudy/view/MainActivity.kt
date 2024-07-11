@@ -8,6 +8,7 @@ import com.example.cleanarchitecturestudy.R
 import com.example.cleanarchitecturestudy.view.qr.QrCodeActivity
 import com.example.cleanarchitecturestudy.view.search.MovieSearchActivity
 import com.example.cleanarchitecturestudy.view.web.WebViewActivity
+import io.imqa.mpm.IMQAMpmAgent
 
 /**
  * MainActivity.
@@ -34,5 +35,17 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, WebViewActivity::class.java))
             }
         }
+    }
+
+
+    override fun onStart() {
+        IMQAMpmAgent.getInstance().startRender(this,"onStart")
+        super.onStart()
+        IMQAMpmAgent.getInstance().endRender(this,"onStart")
+    }
+    override fun onResume() {
+        IMQAMpmAgent.getInstance().startRender(this,"onResume")
+        super.onResume()
+        IMQAMpmAgent.getInstance().endRender(this, "onResume");
     }
 }

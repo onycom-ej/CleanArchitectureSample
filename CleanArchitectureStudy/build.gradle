@@ -4,6 +4,9 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+        }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.2.1"
@@ -11,6 +14,7 @@ buildscript {
 
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
         classpath "org.jacoco:org.jacoco.core:$jacocoVersion"
+
     }
 }
 
@@ -19,6 +23,9 @@ allprojects {
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
+        maven {
+            url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+        }
     }
 }
 

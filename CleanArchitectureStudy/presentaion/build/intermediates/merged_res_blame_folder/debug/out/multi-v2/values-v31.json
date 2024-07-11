@@ -1,17 +1,17 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/youheegyeong/CleanArchitectureSample/CleanArchitectureStudy/presentaion/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v31/values-v31.xml",
+            "outputFile": "/Users/kim/AndroidStudioProjects/CleanArchitectureSample/CleanArchitectureStudy/presentaion/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v31/values-v31.xml",
             "map": [
                 {
-                    "source": "/Users/youheegyeong/CleanArchitectureSample/CleanArchitectureStudy/presentaion/src/main/res/values-v31/themes.xml",
+                    "source": "/Users/kim/AndroidStudioProjects/CleanArchitectureSample/CleanArchitectureStudy/presentaion/src/main/res/values-v31/themes.xml",
                     "from": {
                         "startLines": "3",
                         "startColumns": "4",
-                        "startOffsets": "106",
+                        "startOffsets": "103",
                         "endLines": "26",
                         "endColumns": "12",
-                        "endOffsets": "1602"
+                        "endOffsets": "1576"
                     },
                     "to": {
                         "startLines": "2",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/youheegyeong/AppUnifyKotlin_Android/AppUnifyKotlin/gradle/caches/transforms-2/files-2.1/f475a954ec6fa19b652c8190f7578056/core-splashscreen-1.0.0/res/values-v31/values-v31.xml",
+                    "source": "/Users/kim/.gradle/caches/transforms-2/files-2.1/f475a954ec6fa19b652c8190f7578056/core-splashscreen-1.0.0/res/values-v31/values-v31.xml",
                     "from": {
                         "startLines": "2,9",
                         "startColumns": "4,4",

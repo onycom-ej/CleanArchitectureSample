@@ -5,7 +5,7 @@ ext {
     buildTools_Version = "30.0.3"
     minSdk_Version = 24
     versionCode = 1
-    versionName = "1.0.0"
+    versionName = "1.2.0"
     kotlinVersion = "1.5.0"
 
     splashVersion = "1.0.0"

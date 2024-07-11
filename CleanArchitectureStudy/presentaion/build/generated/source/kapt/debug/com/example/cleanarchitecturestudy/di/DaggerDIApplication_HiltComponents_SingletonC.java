@@ -12,6 +12,7 @@ import com.example.cleanarchitecturestudy.hilt.ApiModule_ProvideApiInterfaceFact
 import com.example.cleanarchitecturestudy.hilt.ApiModule_ProvideHeaderInterceptorFactory;
 import com.example.cleanarchitecturestudy.hilt.ApiModule_ProvideHttpClientFactory;
 import com.example.cleanarchitecturestudy.hilt.ApiModule_ProvideLoggingInterceptorFactory;
+import com.example.cleanarchitecturestudy.hilt.ApiModule_ProvideMPMInterceptorFactory;
 import com.example.cleanarchitecturestudy.hilt.ApiModule_ProvideOkHttpClientFactory;
 import com.example.cleanarchitecturestudy.hilt.ApiModule_ProvideRetrofitFactory;
 import com.example.cleanarchitecturestudy.hilt.DataModule;
@@ -58,6 +59,7 @@ import dagger.internal.MapBuilder;
 import dagger.internal.MemoizedSentinel;
 import dagger.internal.Preconditions;
 import dagger.internal.SetBuilder;
+import io.imqa.mpm.network.MPMInterceptor;
 import io.ktor.client.HttpClient;
 import java.util.Map;
 import java.util.Set;
@@ -78,6 +80,8 @@ public final class DaggerDIApplication_HiltComponents_SingletonC extends DIAppli
   private volatile Object interceptor = new MemoizedSentinel();
 
   private volatile Object httpLoggingInterceptor = new MemoizedSentinel();
+
+  private volatile Object mPMInterceptor = new MemoizedSentinel();
 
   private volatile Object okHttpClient = new MemoizedSentinel();
 
@@ -136,13 +140,27 @@ public final class DaggerDIApplication_HiltComponents_SingletonC extends DIAppli
     return (HttpLoggingInterceptor) local;
   }
 
+  private MPMInterceptor mPMInterceptor() {
+    Object local = mPMInterceptor;
+    if (local instanceof MemoizedSentinel) {
+      synchronized (local) {
+        local = mPMInterceptor;
+        if (local instanceof MemoizedSentinel) {
+          local = ApiModule_ProvideMPMInterceptorFactory.provideMPMInterceptor();
+          mPMInterceptor = DoubleCheck.reentrantCheck(mPMInterceptor, local);
+        }
+      }
+    }
+    return (MPMInterceptor) local;
+  }
+
   private OkHttpClient okHttpClient() {
     Object local = okHttpClient;
     if (local instanceof MemoizedSentinel) {
       synchronized (local) {
         local = okHttpClient;
         if (local instanceof MemoizedSentinel) {
-          local = ApiModule_ProvideOkHttpClientFactory.provideOkHttpClient(interceptor(), httpLoggingInterceptor());
+          local = ApiModule_ProvideOkHttpClientFactory.provideOkHttpClient(interceptor(), httpLoggingInterceptor(), mPMInterceptor());
           okHttpClient = DoubleCheck.reentrantCheck(okHttpClient, local);
         }
       }

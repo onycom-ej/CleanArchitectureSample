@@ -11,6 +11,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import io.imqa.mpm.network.MPMInterceptor
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.plugins.*
@@ -55,6 +56,7 @@ object ApiModule {
     fun provideOkHttpClient(
         headerInterceptor: Interceptor,
         LoggerInterceptor: HttpLoggingInterceptor,
+        mpmInterceptor: MPMInterceptor
     ): OkHttpClient {
 
         val okHttpClientBuilder = OkHttpClient().newBuilder()
@@ -63,6 +65,8 @@ object ApiModule {
         okHttpClientBuilder.writeTimeout(60, TimeUnit.SECONDS)
         okHttpClientBuilder.addInterceptor(headerInterceptor)
         okHttpClientBuilder.addInterceptor(LoggerInterceptor)
+        okHttpClientBuilder.addNetworkInterceptor(mpmInterceptor) // Add MPMInterceptor
+
 
         return okHttpClientBuilder.build()
     }
@@ -94,6 +98,12 @@ object ApiModule {
                 it.setLevel(HttpLoggingInterceptor.Level.NONE)
             }
         }
+    }
+
+    @Provides
+    @Singleton
+    fun provideMPMInterceptor(): MPMInterceptor {
+        return MPMInterceptor() // Add provider method for MPMInterceptor
     }
 
     @Singleton

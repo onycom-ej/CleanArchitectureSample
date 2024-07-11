@@ -6,6 +6,7 @@ import com.example.data.api.ApiClient
 import com.example.data.api.ApiInterface
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
+import io.imqa.mpm.network.MPMInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -46,8 +47,8 @@ val apiModule: Module = module {
     single {
         OkHttpClient.Builder()
             .run {
-                addInterceptor(get<Interceptor>()) // 하단에 선언한 Intercepter 를 주입
-
+                addNetworkInterceptor(MPMInterceptor()) // MPMInterceptor 추가
+                addInterceptor(get<Interceptor>()) // 하단에 선언한 Interceptor 를 주입
                 // 통신 시 시간 관련 option 추가
                 connectTimeout(60, TimeUnit.SECONDS)
                 readTimeout(60, TimeUnit.SECONDS)
