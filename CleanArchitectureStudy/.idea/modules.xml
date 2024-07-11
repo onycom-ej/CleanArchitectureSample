@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/CleanArchitectureStudy.data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/CleanArchitectureStudy.data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/CleanArchitectureStudy.domain.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/CleanArchitectureStudy.domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/presentaion/CleanArchitectureStudy.presentaion.iml" filepath="$PROJECT_DIR$/.idea/modules/presentaion/CleanArchitectureStudy.presentaion.iml" />
+    </modules>
+  </component>
+</project>
